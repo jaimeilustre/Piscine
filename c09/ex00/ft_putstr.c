@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                         ::::::::           */
+/*   ft_putstr.c                                         :+:    :+:           */
+/*                                                      +:+                   */
+/*   By: jilustre <marvin@42.fr>                       +#+                    */
+/*                                                    +#+                     */
+/*   Created: 2024/09/04 07:28:20 by jilustre       #+#    #+#                */
+/*   Updated: 2024/09/04 07:28:51 by jilustre       ########   odam.nl        */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
-void    ft_putstr(char *str)
+void	ft_putstr(char *str)
 {
-    while (*str)
-    {
-        write(1, str, 1);
-        str++;
-    }
+	while (*str)
+	{
+		write(1, str, 1);
+		str++;
+	}
 }

@@ -40,20 +40,12 @@ char	*ft_strcat(char *dest, char *src)
 	return (dest);
 }
 
-char	*ft_strjoin(int size, char **strs, char *sep)
+int	total_length(int size, char **strs, char *sep)
 {
-	char	*result;
 	int		total_len;
 	int		i;
 	int		sep_len;
 
-	if (size == 0)
-	{
-		result = (char *)malloc(1);
-		if (result)
-			result [0] = '\0';
-		return (result);
-	}
 	sep_len = ft_strlen(sep);
 	total_len = 0;
 	i = 0;
@@ -64,6 +56,23 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 			total_len += sep_len;
 		i++;
 	}
+	return (total_len);
+}
+
+char	*ft_strjoin(int size, char **strs, char *sep)
+{
+	char	*result;
+	int		total_len;
+	int		i;
+
+	if (size == 0)
+	{
+		result = (char *)malloc(1);
+		if (result)
+			result [0] = '\0';
+		return (result);
+	}
+	total_len = total_length(size, strs, sep);
 	result = (char *)malloc(total_len + 1);
 	if (!result)
 		return (NULL);
@@ -79,25 +88,25 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	return (result);
 }
 
-#include <stdio.h>
+// #include <stdio.h>
 
-int	main(void)
-{
-	char	*strs[] = {"Hello", "world"};
-	char	*sep = " ";
-	char	*result;
+// int	main(void)
+// {
+// 	char	*strs[] = {"Hello", "world"};
+// 	char	*sep = " ";
+// 	char	*result;
 
-	result = ft_strjoin(2, strs, sep);
-	if (result)
-	{
-		printf("%s\n", result);
-		free(result);
-	}
-	result = ft_strjoin(0, strs, sep);
-	if (result)
-	{
-		printf("Empty string: '%s'\n", result);
-		free(result);
-	}
-	return (0);
-}
+// 	result = ft_strjoin(2, strs, sep);
+// 	if (result)
+// 	{
+// 		printf("%s\n", result);
+// 		free(result);
+// 	}
+// 	result = ft_strjoin(0, strs, sep);
+// 	if (result)
+// 	{
+// 		printf("Empty string: '%s'\n", result);
+// 		free(result);
+// 	}
+// 	return (0);
+// }
