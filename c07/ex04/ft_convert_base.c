@@ -162,7 +162,7 @@ int	main(void)
 {
 	char	*str1 = "2A";
 	char	*base1 = "0123456789ABCDEF";
-	char	*base2 = "poneyvif";
+	char	*base2 = "01";
 
 	printf("%s\n", ft_convert_base(str1, base1, base2));
 	free(ft_convert_base(str1, base1, base2));
