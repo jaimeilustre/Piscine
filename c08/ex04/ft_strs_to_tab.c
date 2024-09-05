@@ -43,8 +43,8 @@ char	*ft_strdup(char *src)
 
 struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 {
-	int i;
-	t_stock_str *array;
+	int		i;
+	t_stock_str	*array;
 
 	if (ac <= 0 || !av)
 		return (NULL);
@@ -72,27 +72,27 @@ struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 
 #include <stdio.h>
 
-t_stock_str	*ft_strs_to_tab(int ac, char **av);
+// t_stock_str	*ft_strs_to_tab(int ac, char **av);
+void	ft_show_tab(struct s_stock_str *par);
 
-void	print_tab(t_stock_str *tab)
+int	main(void)
 {
-	int i = 0;
-	while (tab[i].str != 0)
-	{
-		printf("Original: %s, Copy: %s, Size: %d\n", tab[i].str, tab[i].copy, tab[i].size);
-		i++;
-	}
+	char	*strs[4];
+	char	*str1;
+	char	*str2;
+	char	*str3;
+	char	*str4;
+	int		size;
+
+	str1 = "Hello";
+	str2 = "World";
+	str3 = "Goodbye";
+	str4 = "!";
+	size = 4;
+	strs[0] = str1;
+	strs[1] = str2;
+	strs[2] = str3;
+	strs[3] = str4;
+	ft_show_tab(ft_strs_to_tab(size, strs));
 }
 
-int main(int argc, char **argv)
-{
-	t_stock_str *result = ft_strs_to_tab(argc - 1, argv + 1);
-	if (result)
-	{
-		print_tab(result);
-		for (int i = 0; i < argc - 1; i++)
-			free(result[i].copy);
-		free(result);
-	}
-	return 0;
-}
